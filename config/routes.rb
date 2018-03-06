@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "products#index"
-  
+  resources :user, only: [:show, :edit, :update]
   namespace :admin do
     root "products#index"
     resources :products
