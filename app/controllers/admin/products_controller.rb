@@ -11,6 +11,7 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.new(product_params)
     if @product.save
       flash[:notice]="Successfully"
+      redirect_to admin_products_path
     else
       flash[:alert]="failed"
       render :new
