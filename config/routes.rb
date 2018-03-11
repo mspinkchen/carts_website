@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     member do
       post :add_product_to_cart
-    end
-
-    collection do
-      get :cart
+      post :remove_from_cart
+      post :adjust_item
     end
   end
+
+  resource :cart
 
   namespace :admin do
     root "products#index"
