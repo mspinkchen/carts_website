@@ -11,24 +11,13 @@
       <%= product.name %>
   
       <p>$ <%= product.price %></p>
-      <h5><%=button_to 'Add to cart', add_product_to_cart_product_path(product) %></h5>
+      <h5><%=button_to 'Add to cart', add_product_to_cart_product_path(product), remote: true %></h5>
       </div>
     <% end %>
     <%= paginate @products %>
     </div>
 
-    <section id = "my-cart">
-    <h1>Cart</h1>
-    <hr>
-    <% current_cart.cart_items.each do |item| %>
-    <%= render partial:"shared/item", locals:{item: item} %>
-    <% end %>
-    <hr>
-    <div class="subtotal">
-      <p>SUBTOTAL</p>
-      <p class="amount">$ <%=current_cart.subtotal %></p>
-    </div>    
-  </section>
+    <%= render partial: "shared/cart" %>
 
   </div>
 </div>

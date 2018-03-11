@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     current_cart.add_cart_item(@product) 
     
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
 
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     cart_item = current_cart.cart_items.find_by(product_id: @product)
     cart_item.destroy
 
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
   def adjust_item
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
     else
       cart_item.save
     end
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
 end

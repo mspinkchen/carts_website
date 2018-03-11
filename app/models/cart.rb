@@ -23,6 +23,9 @@ class Cart < ApplicationRecord
     end.sum
   end
 
+  def find_item_by(product)
+    self.cart_items.where(product_id: product).first
+  end
 
 
 end

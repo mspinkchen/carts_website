@@ -38,6 +38,7 @@ gem 'ffaker'
 gem 'kaminari'
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'jquery-rails'
 
 
 group :development, :test do
