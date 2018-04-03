@@ -1,13 +1,17 @@
-<div class="contianer">
+<div class="container">
   <div class="row">
+    <div class="col-offset-4 col-md-8">
+      <div class="col-md-4">
       <div class="my-image">
-      <%= image_tag product.image, class: "img-responsive" %>
+      <%= image_tag @product.image, class:"myimage img-responsice" %>
       </div>
-      <h4><%= product.name %></h4>
-      <p>$ <%= product.price %></p>
-      <h5><%=button_to 'Add to cart', cart_items_path(product) %></h5>
+      <h4><%= @product.name %></h4>
+      <p>$ <%= @product.price %></p>
+      <h5><%=button_to 'Add to cart', add_product_to_cart_product_path(@product), remote: true  %></h5>
+      </div>
     </div>
-    <% end %>
+    <div class="col-md-4">
+      <%= render partial: "shared/cart" %>
+    </div>
   </div>
-
 </div>

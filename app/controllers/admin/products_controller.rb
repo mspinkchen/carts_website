@@ -18,6 +18,21 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      flash[:notice]= "Successfully updated"
+      redirect_to admin_products_path
+    else
+      render :edit
+      flash[:notice]= @product.errors.full_messages.to_sentence
+    end
+  end
+
 
 
 

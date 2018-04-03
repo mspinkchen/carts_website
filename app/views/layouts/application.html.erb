@@ -27,7 +27,7 @@
         <li><%= link_to('登出', destroy_user_session_path, method: :delete) %></li>
         <li><%= link_to('修改個人資料', edit_user_registration_path(current_user)) %></li>
         <% else %>
-        <li><%= link_to('購物車', cart_path) %></li>
+        <li><%= link_to('購物車', cart_path(@cart)) %></li>
         <li><%= link_to('註冊', new_user_registration_path) %></li>
         <li><%= link_to('登入', new_user_session_path) %></li>
         <% end %>

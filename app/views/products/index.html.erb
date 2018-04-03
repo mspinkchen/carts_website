@@ -4,10 +4,11 @@
     <% @products.each do |product| %>
       <div class="col-sm-4 col-md-3">
       
-      <% link_to product_path(product) %>
+      <%= link_to product_path(product) do%>
       <div class = 'myimage'>
       <%= image_tag product.image, class:"myimage img-responsice"%>
       </div>
+      <% end %>
       <%= product.name %>
   
       <p>$ <%= product.price %></p>

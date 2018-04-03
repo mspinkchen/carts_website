@@ -27,5 +27,4 @@ class Cart < ApplicationRecord
     self.cart_items.where(product_id: product).first
   end
 
-
 end

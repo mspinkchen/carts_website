@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   end
 
   resource :cart
+  resource :orders, only: [:create, :show]
 
   namespace :admin do
     root "products#index"
     resources :products
+    resources :orders, only: [:index, :show, :update, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

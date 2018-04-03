@@ -11,5 +11,5 @@
       <p>SUBTOTAL</p>
       <p class="amount">$ <%=current_cart.subtotal %></p>
     </div>
-    <%= link_to "view cart", cart_path %>    
+    <%= link_to "view cart", cart_path(@cart) %>    
   </section>
