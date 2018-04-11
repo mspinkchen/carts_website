@@ -1,5 +1,4 @@
 class Cart < ApplicationRecord
-
   has_many :cart_items, dependent: :destroy
   has_many :products, through: :cart_items
 
@@ -26,5 +25,6 @@ class Cart < ApplicationRecord
   def find_item_by(product)
     self.cart_items.where(product_id: product).first
   end
+
 
 end

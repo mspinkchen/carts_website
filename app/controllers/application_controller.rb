@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   private
 
-  def after_sign_in_path(resource)
+  def after_sign_in_path_for(resource)
     #如果有新訂單，尋找購物車資訊，並回到購物車頁面
     if session[:new_order_data].present?
       @cart = Cart.find(session[:cart_id])

@@ -1,1 +1,35 @@
-orders
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">#<%= @order.sn %> </div>
+      <div class="panel-body">
+        <div class="col-md-6">
+        <h4>產品明細</h4>
+
+         <% @order.order_items.each do |item| %>
+          <p><%= item.product.name %></p>
+          <p><%= item.quantity %></p>
+        <hr>
+        <% end %>
+      <div class="subtotal">
+        <p>SUBTOTAL</p>
+        <p class="amount">$ <%= @order.amount%></p>
+      </div>
+      <hr>
+        <h4>收件明細</h4>
+        <p><%= @order.name %></p>
+        <p><%= @order.phone %></p>
+        <p><%= @order.address %></p>
+      </div>
+
+      <div class="col-md-6">
+        <br>
+        <p>Payment Status: <%=@order.payment_status %></p>
+        <p>Shipping Status: <%= @order.shipping_status %></p>
+
+      </div>
+
+      </div>
+      </div>
+
+
+</div>

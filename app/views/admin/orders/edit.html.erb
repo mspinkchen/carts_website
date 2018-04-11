@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">#<%= @order.sn %> </div>
+      <div class="panel-body">
+        <div class="col-md-6">
+        <h4>產品明細</h4>
+
+         <% @order.order_items.each do |item| %>
+          <p><%= item.product.name %></p>
+          <p><%= item.quantity %></p>
+        <hr>
+        <% end %>
+      <div class="subtotal">
+        <p>SUBTOTAL</p>
+        <p class="amount">$ <%= @order.amount%></p>
+      </div>
+      <hr>
+        <h4>收件明細</h4>
+        <p><%= @order.name %></p>
+        <p><%= @order.phone %></p>
+        <p><%= @order.address %></p>
+      </div>
+
+        <div class="col-md-6">
+          <br>
+            <%= form_for [:admin, @order] do |f| %>
+              <div class="form-group">
+              <%= f.label :payment_status, "Payment_status" %>
+              <%= f.select(:payment_status, options_for_select([["not paid", "not paid"], ["paid", "paid"]], "@order.payment_status")) %>
+              <br>
+              <%= f.label :shipping_status, "shipping_status" %>
+              <%= f.select(:shipping_status, options_for_select([["not shipped","not shipped"], ["shipped","shipped"]], "@order.shipping_status")) %>
+
+              <br>
+              <%= f.submit  class: "btn btn-primary" %>
+              <% end %>
+
+              </div>
+     
+  
+        </div>
+
+      </div>
+  </div>
+</div>
+
+
